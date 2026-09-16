@@ -1,0 +1,7 @@
+/* Custom styles for the Inter font and a smooth visual experience */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f4f8; /* Light modern background */
+    min-height: 100vh;
+    padding-top: 20px;
+}

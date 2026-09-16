@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marathi News Categorizer</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-teal-700 tracking-tight">
+                📰 मराठी बातमी वर्गीकरण
+            </h1>
+            <p class="mt-3 text-lg text-gray-600">
+                Enter a Marathi headline to get its category.
+            </p>
+        </header>
+
+        <!-- Main Card Container -->
+        <div class="bg-white shadow-2xl rounded-2xl p-6 sm:p-8 border border-gray-100">
+            
+            <!-- Headline Input and Button -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                <input 
+                    type="text" 
+                    id="news-headline-input" 
+                    placeholder="Enter Marathi headline (e.g., नवीन तंत्रज्ञान बाजारात आलं)"
+                    class="flex-grow p-4 border-2 border-gray-300 rounded-xl focus:ring-teal-500 focus:border-teal-500 text-base transition duration-200"
+                    onkeypress="if(event.key === 'Enter') document.getElementById('categorize-button').click()"
+                >
+                <button 
+                    id="categorize-button" 
+                    onclick="handleCategorization()"
+                    class="w-full sm:w-auto px-6 py-4 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition duration-200 ease-in-out shadow-lg hover:shadow-xl disabled:opacity-70 flex items-center justify-center space-x-2"
+                >
+                    <span id="button-text">Categorize News Instantly</span>
+                    <svg id="loading-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Error/Message Area -->
+            <div id="message-area" class="text-center p-3 rounded-xl mb-6 hidden"></div>
+            
+            
+            <!-- Results Container -->
+            <div id="results-container" class="mt-8 hidden">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-teal-100 pb-2">Prediction Results</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Primary Prediction Panel -->
+                    <div class="lg:col-span-2 bg-teal-50 p-6 rounded-xl shadow-inner border border-teal-200">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-teal-600">Predicted Category</span>
+                            <span id="primary-confidence" class="text-base font-bold text-teal-700">100.00%</span>
+                        </div>
+                        <p id="predicted-category" class="text-4xl font-extrabold text-teal-800 truncate mb-4">...</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-teal-200">
+                            <h4 class="text-sm font-semibold text-teal-700 mb-2">Reasoning:</h4>
+                            <p id="reasoning" class="text-gray-700 italic text-sm">...</p>
+                        </div>
+                    </div>
+
+                    <!-- Top 3 Confidence Scores Panel -->
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <h4 class="text-base font-semibold text-gray-700 mb-3">Top 3 Confidence Scores</h4>
+                        <ul id="top-predictions-list" class="space-y-3">
+                             <!-- Scores will be dynamically updated here -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Results Container -->
+
+        </div>
+        <!-- End Main Card Container -->
+
+        <!-- History Container (New Section) -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-teal-100 pb-2 flex justify-between items-center">
+                Classification History
+                <button id="clear-history-button" onclick="clearHistory()" class="text-xs text-red-500 hover:text-red-700 font-semibold transition duration-150 p-1 rounded-md border border-red-300 shadow-sm">
+                    Clear History
+                </button>
+            </h2>
+            <div id="history-list" class="space-y-4">
+                <p id="no-history-message" class="text-gray-500 italic text-center py-4 border border-dashed rounded-lg">No previous classifications found. Start by entering a headline above!</p>
+                <!-- History items will be inserted here -->
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="mt-8 text-center text-sm text-gray-500">
+            Marathi News Categorizer.
+        </footer>
+
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
