@@ -37,10 +37,7 @@ with open(CATEGORIES_PATH, "rb") as f:
     CATEGORIES = pickle.load(f)
 
 
-def preprocess(text: str) -> str:
-    text = re.sub(r"[^\u0900-\u097F\s]", " ", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
+from preprocess import preprocess
 
 
 def explain(cleaned_headline, predicted_class):
@@ -117,6 +114,7 @@ def categorize():
             {"category": category, "score": float(score)} for category, score in top3
         ],
         "reasoning_english": reasoning,
+        "preprocessed_text": cleaned,
     }
     return jsonify(response)
 

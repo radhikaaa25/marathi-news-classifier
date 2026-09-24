@@ -1,0 +1,29 @@
+# Environments
+venv/
+env/
+.env
+.venv/
+backend/venv/
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Optionally, you can ignore the large dataset or model files if needed:
+# backend/data/*.csv
+# backend/model/*.pkl

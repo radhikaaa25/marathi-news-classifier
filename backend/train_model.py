@@ -28,11 +28,7 @@ MODEL_PATH = "model/classifier.pkl"
 CATEGORIES_PATH = "model/categories.pkl"
 
 
-def preprocess(text: str) -> str:
-    """Basic Marathi text cleaning: strip punctuation/digits, collapse spaces."""
-    text = re.sub(r"[^\u0900-\u097F\s]", " ", text)  # keep Devanagari + spaces
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
+from preprocess import preprocess
 
 
 def load_data(path):

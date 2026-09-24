@@ -18,6 +18,7 @@ const resultsContainer = document.getElementById('results-container');
 const predictedCategoryElement = document.getElementById('predicted-category');
 const primaryConfidenceElement = document.getElementById('primary-confidence');
 const reasoningElement = document.getElementById('reasoning');
+const preprocessedTextElement = document.getElementById('preprocessed-text');
 const messageArea = document.getElementById('message-area');
 const topPredictionsList = document.getElementById('top-predictions-list');
 const historyList = document.getElementById('history-list');
@@ -304,6 +305,13 @@ async function handleCategorization() {
             predictedCategoryElement.textContent = topPrediction.category;
             primaryConfidenceElement.textContent = `${(topPrediction.score * 100).toFixed(2)}%`;
             reasoningElement.textContent = result.reasoning_english;
+            
+            if (result.preprocessed_text) {
+                preprocessedTextElement.textContent = result.preprocessed_text;
+                preprocessedTextElement.parentElement.classList.remove('hidden');
+            } else {
+                preprocessedTextElement.parentElement.classList.add('hidden');
+            }
 
             // 2. Update Top Predictions List
             topPredictionsList.innerHTML = ''; // Clear previous list
