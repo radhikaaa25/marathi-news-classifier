@@ -37,7 +37,7 @@ with open(CATEGORIES_PATH, "rb") as f:
     CATEGORIES = pickle.load(f)
 
 
-from preprocess import preprocess
+from preprocess import preprocess, preprocess_steps
 
 
 def explain(cleaned_headline, predicted_class):
@@ -93,7 +93,10 @@ def categorize():
     if not headline:
         return jsonify({"error": "Please provide a non-empty 'headline'."}), 400
 
-    cleaned = preprocess(headline)
+    # Run step-by-step preprocessing
+    steps = preprocess_steps(headline)
+    cleaned = steps["final"]
+
     if not cleaned:
         return jsonify({"error": "Headline must contain Marathi (Devanagari) text."}), 400
 
@@ -115,6 +118,14 @@ def categorize():
         ],
         "reasoning_english": reasoning,
         "preprocessed_text": cleaned,
+        "preprocessing_steps": {
+            "step1_raw":          steps["step1_raw"],
+            "step2_normalized":   steps["step2_normalized"],
+            "step3_tokens":       steps["step3_tokens"],
+            "step4_no_punct":     steps["step4_no_punct"],
+            "step5_no_stopwords": steps["step5_no_stopwords"],
+            "step6_stemmed":      steps["step6_stemmed"],
+        },
     }
     return jsonify(response)
 
