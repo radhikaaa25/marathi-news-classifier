@@ -1,0 +1,50 @@
+1. Politics (राजकारण)
+
+आगामी विधानसभा निवडणुकीसाठी सर्व पक्षांनी उमेदवारांची यादी जाहीर केली आहे. (All parties have announced their list of candidates for the upcoming assembly elections.)
+
+2. Sports (क्रीडा)
+
+भारतीय क्रिकेट संघाने विश्वचषक स्पर्धेत सलग तिसरा सामना जिंकला. (The Indian cricket team won their third consecutive match in the World Cup tournament.)
+
+3. Entertainment (मनोरंजन)
+
+या प्रसिद्ध अभिनेत्याचा नवीन चित्रपट लवकरच चित्रपटगृहात प्रदर्शित होणार आहे. (This famous actor's new movie is going to be released in theaters soon.)
+
+4. Health (आरोग्य)
+
+डेंग्यूच्या रुग्णांमध्ये वाढ झाल्याने सरकारी रुग्णालयात मोफत उपचार शिबीर आयोजित केले आहे. (Due to an increase in Dengue patients, a free treatment camp has been organized at the government hospital.)
+5. Crime (गुन्हेगारी)
+
+पुण्यात मध्यरात्री झालेल्या मोठ्या चोरी प्रकरणी पोलिसांनी तीन आरोपींना अटक केली. (The police arrested three suspects in connection with a major robbery that took place in Pune at midnight.)
+
+6. Tech (तंत्रज्ञान)
+
+ऍपल कंपनीने आपला नवीन आयफोन अद्ययावत कृत्रिम बुद्धिमत्ता (AI) तंत्रज्ञानासह बाजारात आणला. (Apple launched its new iPhone in the market with updated Artificial Intelligence (AI) technology.)
+
+7. Travel (पर्यटन)
+
+हिवाळ्याच्या सुट्टीत कोकणातील समुद्रकिनाऱ्यांवर पर्यटकांची मोठी गर्दी पाहायला मिळत आहे. (During the winter holidays, a large crowd of tourists can be seen on the beaches of Konkan.)
+
+8. Education (शिक्षण)
+
+दहावी आणि बारावीच्या बोर्ड परीक्षेचे वेळापत्रक शिक्षण मंडळाकडून अधिकृतपणे जाहीर. (The timetable for the 10th and 12th board exams has been officially announced by the education board.)
+
+9. Fashion (फॅशन)
+
+यंदाच्या लॅक्मे फॅशन वीकमध्ये पारंपारिक आणि आधुनिक कपड्यांचा अनोखा संगम पाहायला मिळाला. (This year's Lakme Fashion Week saw a unique blend of traditional and modern clothing.)
+
+10. Bhakti (भक्ती/अध्यात्म)
+
+आषाढी एकादशीनिमित्त पंढरपूरच्या विठ्ठल मंदिरात लाखो भाविकांनी दर्शनासाठी गर्दी केली. (On the occasion of Ashadhi Ekadashi, lakhs of devotees gathered for darshan at the Vitthal temple in Pandharpur.)
+
+11. Auto (ऑटोमोबाईल)
+
+पेट्रोलच्या वाढत्या किमतींमुळे ग्राहकांची पसंती आता नवीन इलेक्ट्रिक कार खरेदी करण्याकडे वाढली आहे. (Due to rising petrol prices, consumer preference has now shifted towards buying new electric cars.)
+
+12. International (आंतरराष्ट्रीय)
+
+हवामान बदलाच्या मुद्द्यावर संयुक्त राष्ट्रांच्या परिषदेत अमेरिका आणि चीनमध्ये महत्त्वाची चर्चा. (Important discussions held between America and China at the UN conference on the issue of climate change.)
+
+Bonus: A tricky "mixed" sentence to see how the model reasons:
+
+नवीन क्रीडा मंत्री आज ऑलिम्पिक खेळाडूंची भेट घेणार आहेत. (The new Sports Minister is going to meet the Olympic athletes today.) (Try this one to see if the model picks "Politics" or "Sports" and check the "Reasoning" box to see which words it weighed more heavily!)
