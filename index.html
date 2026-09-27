@@ -7,28 +7,23 @@
     <meta name="description" content="AI-powered Marathi news headline classifier with step-by-step NLP preprocessing pipeline visualization.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Brutalist fonts: Space Grotesk for UI, Eczar for bold Marathi/headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Eczar:wght@600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Animated background orbs -->
-    <div class="bg-orbs" aria-hidden="true">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+    <!-- Removed background orbs for a cleaner, brutalist look -->
 
     <div class="app-wrapper">
 
         <!-- ── HEADER ── -->
         <header class="site-header">
             <div class="header-badge">
-                <span class="badge-dot"></span>
-                NLP Pipeline
+                [ NLP PIPELINE ]
             </div>
             <h1 class="site-title">
-                <span class="devanagari">मराठी</span> News Classifier
+                <span class="devanagari">मराठी</span> NEWS CLASSIFIER
             </h1>
             <p class="site-subtitle">
                 Enter a Marathi headline and watch the AI preprocessing pipeline unfold — step by step.
@@ -36,10 +31,10 @@
         </header>
 
         <!-- ── INPUT CARD ── -->
-        <section class="card input-card">
+        <section class="card input-card bg-yellow">
             <div class="input-group">
-                <div class="input-wrapper">
-                    <span class="input-icon">📝</span>
+                <div class="input-wrapper bg-white">
+                    <span class="input-icon">✎</span>
                     <input
                         type="text"
                         id="news-headline-input"
@@ -50,22 +45,22 @@
                         onkeypress="if(event.key===&apos;Enter&apos;)document.getElementById(&apos;categorize-button&apos;).click()"
                     >
                 </div>
-                <button id="categorize-button" class="classify-btn" onclick="handleCategorization()">
+                <button id="categorize-button" class="classify-btn bg-black text-white" onclick="handleCategorization()">
                     <span id="button-text">Classify</span>
                     <svg id="loading-spinner" class="spinner hidden" viewBox="0 0 24 24" fill="none">
                         <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="15"/>
                     </svg>
-                    <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    <span class="btn-arrow">→</span>
                 </button>
             </div>
 
             <!-- Sample headlines -->
             <div class="samples-row">
-                <span class="samples-label">Try:</span>
-                <button class="sample-chip" onclick="useSample(this)">क्रिकेट सामन्यात भारताचा विजय</button>
-                <button class="sample-chip" onclick="useSample(this)">नवीन मोबाईल बाजारात दाखल</button>
-                <button class="sample-chip" onclick="useSample(this)">पुण्यात मोठ्या चोरीचा प्रकार</button>
-                <button class="sample-chip" onclick="useSample(this)">मुंबईत आरोग्य शिबिराचे आयोजन</button>
+                <span class="samples-label">TRY THESE:</span>
+                <button class="sample-chip bg-white" onclick="useSample(this)">क्रिकेट सामन्यात भारताचा विजय</button>
+                <button class="sample-chip bg-white" onclick="useSample(this)">नवीन मोबाईल बाजारात दाखल</button>
+                <button class="sample-chip bg-white" onclick="useSample(this)">पुण्यात मोठ्या चोरीचा प्रकार</button>
+                <button class="sample-chip bg-white" onclick="useSample(this)">मुंबईत आरोग्य शिबिराचे आयोजन</button>
             </div>
 
             <!-- Message area -->
@@ -73,7 +68,7 @@
         </section>
 
         <!-- ── PREPROCESSING PIPELINE ── -->
-        <section id="pipeline-section" class="card pipeline-card hidden">
+        <section id="pipeline-section" class="card pipeline-card bg-white hidden">
             <div class="section-header">
                 <div class="section-icon">⚙️</div>
                 <div>
@@ -85,88 +80,88 @@
             <div class="pipeline-steps" id="pipeline-steps">
 
                 <!-- Step 1: Raw -->
-                <div class="pipeline-step" id="ps-1">
+                <div class="pipeline-step bg-step" id="ps-1">
                     <div class="step-header">
-                        <div class="step-number">1</div>
+                        <div class="step-number bg-black text-white">1</div>
                         <div class="step-meta">
                             <span class="step-name">Raw Input</span>
                             <span class="step-desc">Original headline as entered by the user</span>
                         </div>
-                        <div class="step-badge step-badge-raw">Raw</div>
+                        <div class="step-badge border-black">RAW</div>
                     </div>
                     <div class="step-output" id="out-raw"></div>
                 </div>
 
                 <!-- Step 2: Normalized -->
-                <div class="pipeline-step" id="ps-2">
+                <div class="pipeline-step bg-step" id="ps-2">
                     <div class="step-header">
-                        <div class="step-number">2</div>
+                        <div class="step-number bg-black text-white">2</div>
                         <div class="step-meta">
                             <span class="step-name">Normalization</span>
                             <span class="step-desc">IndicNLP normalizer fixes ZWJ, ZWNJ, Nukta & Unicode variants</span>
                         </div>
-                        <div class="step-badge step-badge-norm">IndicNLP</div>
+                        <div class="step-badge border-black">IndicNLP</div>
                     </div>
                     <div class="step-output" id="out-normalized"></div>
                     <div class="step-diff" id="diff-normalized"></div>
                 </div>
 
                 <!-- Step 3: Tokens -->
-                <div class="pipeline-step" id="ps-3">
+                <div class="pipeline-step bg-step" id="ps-3">
                     <div class="step-header">
-                        <div class="step-number">3</div>
+                        <div class="step-number bg-black text-white">3</div>
                         <div class="step-meta">
                             <span class="step-name">Tokenization</span>
                             <span class="step-desc">Split into individual word/punctuation tokens</span>
                         </div>
-                        <div class="step-badge step-badge-tok">Tokens</div>
+                        <div class="step-badge border-black">TOKENS</div>
                     </div>
                     <div class="token-grid" id="out-tokens"></div>
                     <div class="step-count" id="count-tokens"></div>
                 </div>
 
                 <!-- Step 4: No Punctuation -->
-                <div class="pipeline-step" id="ps-4">
+                <div class="pipeline-step bg-step" id="ps-4">
                     <div class="step-header">
-                        <div class="step-number">4</div>
+                        <div class="step-number bg-black text-white">4</div>
                         <div class="step-meta">
                             <span class="step-name">Punctuation Removal</span>
                             <span class="step-desc">Strip punctuation marks, digits, and lone symbols</span>
                         </div>
-                        <div class="step-badge step-badge-punct">Cleaned</div>
+                        <div class="step-badge border-black">CLEANED</div>
                     </div>
                     <div class="token-grid" id="out-no-punct"></div>
                     <div class="step-count" id="count-no-punct"></div>
                 </div>
 
                 <!-- Step 5: No Stopwords -->
-                <div class="pipeline-step" id="ps-5">
+                <div class="pipeline-step bg-step" id="ps-5">
                     <div class="step-header">
-                        <div class="step-number">5</div>
+                        <div class="step-number bg-black text-white">5</div>
                         <div class="step-meta">
                             <span class="step-name">Stopword Removal</span>
                             <span class="step-desc">Remove 250+ common Marathi functional words</span>
                         </div>
-                        <div class="step-badge step-badge-stop">Filtered</div>
+                        <div class="step-badge border-black">FILTERED</div>
                     </div>
                     <div class="token-grid" id="out-no-stopwords"></div>
                     <div class="step-count" id="count-no-stopwords"></div>
                 </div>
 
                 <!-- Step 6: Stemmed -->
-                <div class="pipeline-step" id="ps-6">
+                <div class="pipeline-step bg-step" id="ps-6">
                     <div class="step-header">
-                        <div class="step-number">6</div>
+                        <div class="step-number bg-black text-white">6</div>
                         <div class="step-meta">
                             <span class="step-name">Stemming</span>
                             <span class="step-desc">Strip 40+ Marathi suffixes (longest-first greedy)</span>
                         </div>
-                        <div class="step-badge step-badge-stem">Stemmed</div>
+                        <div class="step-badge border-black">STEMMED</div>
                     </div>
                     <div class="token-grid" id="out-stemmed"></div>
                     <div class="step-count" id="count-stemmed"></div>
-                    <div class="final-output-box">
-                        <span class="final-label">Final model input →</span>
+                    <div class="final-output-box bg-mint">
+                        <span class="final-label">FINAL MODEL INPUT →</span>
                         <span class="final-text" id="final-text"></span>
                     </div>
                 </div>
@@ -178,35 +173,35 @@
         <section id="results-container" class="results-grid hidden">
 
             <!-- Primary Prediction -->
-            <div class="card prediction-card">
-                <div class="card-label">Predicted Category</div>
+            <div class="card prediction-card bg-orange">
+                <div class="card-label border-black">PREDICTED CATEGORY</div>
                 <p id="predicted-category" class="predicted-name">—</p>
                 <div class="confidence-row">
-                    <span class="confidence-label">Confidence</span>
+                    <span class="confidence-label">CONFIDENCE</span>
                     <span id="primary-confidence" class="confidence-value">—</span>
                 </div>
-                <div class="confidence-bar-wrap">
-                    <div class="confidence-bar" id="confidence-bar"></div>
+                <div class="confidence-bar-wrap bg-white">
+                    <div class="confidence-bar bg-black" id="confidence-bar"></div>
                 </div>
-                <div class="reasoning-box">
-                    <div class="reasoning-label">🧠 Reasoning</div>
+                <div class="reasoning-box bg-white">
+                    <div class="reasoning-label">🧠 REASONING</div>
                     <p id="reasoning" class="reasoning-text">—</p>
                 </div>
             </div>
 
             <!-- Top 3 Scores -->
-            <div class="card scores-card">
-                <div class="card-label">Top 3 Confidence Scores</div>
+            <div class="card scores-card bg-white">
+                <div class="card-label border-black">TOP 3 CONFIDENCE SCORES</div>
                 <ul id="top-predictions-list" class="scores-list"></ul>
             </div>
 
         </section>
 
         <!-- ── HISTORY ── -->
-        <section class="history-section">
+        <section class="history-section card bg-white">
             <div class="history-header">
-                <h2 class="history-title">Classification History</h2>
-                <button id="clear-history-button" class="clear-btn" onclick="clearHistory()">Clear</button>
+                <h2 class="history-title">CLASSIFICATION HISTORY</h2>
+                <button id="clear-history-button" class="clear-btn bg-red text-white" onclick="clearHistory()">CLEAR</button>
             </div>
             <div id="history-list" class="history-list">
                 <p id="no-history-message" class="no-history">No previous classifications. Start by entering a headline above!</p>
@@ -214,7 +209,7 @@
         </section>
 
         <footer class="site-footer">
-            Marathi News Classifier &mdash; NLP Pipeline Visualizer
+            MARATHI NEWS CLASSIFIER // NLP PIPELINE VISUALIZER
         </footer>
 
     </div>
